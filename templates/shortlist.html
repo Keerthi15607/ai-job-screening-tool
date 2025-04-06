@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shortlisted Candidates</title>
+</head>
+<body>
+    <h1>Shortlisted Candidates</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Match Score</th>
+                <th>Interview Status</th>
+                <th>Schedule Interview</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if candidates %}
+                {% for candidate in candidates %}
+                <tr>
+                    <td>{{ candidate.name }}</td>
+                    <td>{{ candidate.email }}</td>
+                    <td>{{ candidate.match_score }}%</td>
+                    <td>{{ candidate.interview_status }}</td>
+                    <td>
+                        <input type="text" placeholder="mm/dd/yyyy --:-- --">
+                        <button>Schedule</button>
+                    </td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="5">No candidates available.</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</body>
+</html>
